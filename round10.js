@@ -19,10 +19,10 @@ var decimalAdjust = exports.decimalAdjust = function(type, value, exp) {
     }
     // Shift
     value = value.toString().split('e');
-    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp)));
     // Shift back
     value = value.toString().split('e');
-    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+    return +(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp));
 }
 
 module.exports = {
